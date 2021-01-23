@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+}
+
+.login-statement {
+  text-align: center;
+}
+
+.polls {
+  width: 60%;
+  margin: auto;
+}
+
+.poll {
+  margin: 75px 0;
+}
+
+.poll-title {
+  text-align: center;
+  font-size: 30px;
+  margin: 40px;
+}
+
+.poll-options {
+  display: flex;
+}
+
+.poll-button {
+  width: 50%;
+  padding: 1em 0;
+  background:#d0efff;
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+.poll-button:hover {
+  cursor: pointer;
+}
+
+.poll-button:disabled:hover {
+  cursor: default;
+}
+
+.poll-results {
+  display: none;
+  text-align: center;
+}
+
+.poll-results p {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.votes-container {
+  display: inline;
+}
+
+.votes {
+  display: flex;
+  justify-content: space-around;
+}
+
+.active {
+  background: #2a9df4;
+}
+
+.voted .poll-results {
+  display: inline;
+}
+
+.poll-create {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: auto;
+  margin-bottom: 100px;
+}
+
+.poll-create h1 {
+  text-align: center;
+}
+
+.poll-form {
+  display: flex;
+}
+
+.poll-form input {
+  height: 3em;
+  border-radius: 5px;
+
+}

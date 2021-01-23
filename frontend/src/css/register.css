@@ -1,0 +1,46 @@
+.register-container {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 350px;
+    margin: auto;
+    background: #013082;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.9;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    padding: 20px 40px;
+}
+
+.register-container h1 {
+    text-align: center;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.register-form input {
+    margin: 10px 0;
+    width: 100%;
+    height: 2em;
+    font-size: 16px;
+    border: none;
+}
+
+.register-form-submit input {
+    margin-top: 30px;
+    color: white;
+    background: #18b9cb;
+}
+
+.register-error {
+    color: red;
+    text-align: center;
+    margin-top: 0;
+}
