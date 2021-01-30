@@ -31,6 +31,15 @@ class Login extends React.Component {
                     if (data.user.username) {
                         localStorage.setItem('token', data.token)
                         localStorage.setItem('user', data.user.username)
+                        fetch('http://127.0.0.1:8000/api/user_id/', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ "username": localStorage.getItem('user') })
+                        })
+                            .then(response => response.json())
+                            .then(data => {
+                                localStorage.setItem('userId', data)
+                            })
                         this.setState({ loggedin: true })
                     }
                 } catch {

@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.contrib.auth import login
+from django.contrib.auth.models import User
 from rest_framework import generics, permissions, status
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
@@ -41,6 +42,11 @@ def update(request, pk):
     if serializer.is_valid():
         serializer.save()
     return Response(serializer.data)
+
+
+@api_view(['POST'])
+def getUserId(request):
+    return Response(User.objects.get(username=request.data["username"]).id)
 
 
 class UserList(APIView):

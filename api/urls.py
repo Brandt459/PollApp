@@ -9,4 +9,5 @@ urlpatterns = [
     path('update/<str:pk>/', views.update),
     path('token-auth/', obtain_jwt_token),
     path('users/', views.UserList.as_view()),
+    path('user_id/', views.getUserId),
 ]

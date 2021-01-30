@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import jwt_decode from "jwt-decode"
 
 class Navbar extends React.Component {
     constructor() {
@@ -14,14 +13,14 @@ class Navbar extends React.Component {
 
     componentDidMount() {
         if (this.state.loggedIn) {
-            const token = localStorage.getItem('token')
-            const decodedToken = jwt_decode(token)
-            this.setState({ username: decodedToken["username"] })
+            this.setState({ username: localStorage.getItem('user') })
         }
     }
 
     handleLogout() {
         localStorage.removeItem('token')
+        localStorage.removeItem('user')
+        localStorage.removeItem('userId')
         this.setState({
             loggedIn: false,
             username: null,

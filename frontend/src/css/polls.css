@@ -75,6 +75,21 @@ body {
   display: inline;
 }
 
+.owned {
+  position: relative;
+}
+
+.trash-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2.5em;
+}
+
+.trash-icon:hover {
+  cursor: pointer;
+}
+
 .poll-create {
   display: flex;
   flex-direction: column;
@@ -87,12 +102,15 @@ body {
   text-align: center;
 }
 
-.poll-form {
+#poll-form {
   display: flex;
 }
 
-.poll-form input {
+#poll-form input {
   height: 3em;
   border-radius: 5px;
+}
 
+.form-error {
+  color: red;
 }
