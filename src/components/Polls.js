@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import trash from '../images/trash.svg'
-import { url } from '../url'
 
 class Polls extends React.Component {
     constructor() {
@@ -39,7 +38,7 @@ class Polls extends React.Component {
         } else {
             poll["option2votes"].push(userId)
         }
-        fetch(url + `/api/update/${poll["id"]}/`, {
+        fetch(`/api/update/${poll["id"]}/`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(poll)
@@ -64,7 +63,7 @@ class Polls extends React.Component {
 
     createPoll(e) {
         e.preventDefault()
-        fetch(url + '/api/create-poll/', {
+        fetch('/api/create-poll/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -87,7 +86,7 @@ class Polls extends React.Component {
         e.preventDefault()
         const index = ReactDOM.findDOMNode(e.target).parentNode.getAttribute("id")
         let poll = this.state.pollList[index]
-        fetch(url + `/api/delete-poll/${poll["id"]}/`, {
+        fetch(`/api/delete-poll/${poll["id"]}/`, {
             method: 'DELETE'
         })
         let polls = [...this.state.pollList]
