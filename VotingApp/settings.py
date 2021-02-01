@@ -135,7 +135,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:8000',
     'http://localhost:3000',
-    'http://pollapp4.herokuapp.com'
+    'https://pollapp4.herokuapp.com'
 ]
 
 STATICFILES_DIRS = [
