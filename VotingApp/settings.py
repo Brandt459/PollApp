@@ -25,7 +25,7 @@ SECRET_KEY = 'acak1_)tv9)re+*+=ircz7)4jzj%hrgv0+m5$!k30=1ccemp!g'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['pollapp4.herokuapp.com']
 
 
 # Application definition
