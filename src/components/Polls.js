@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import trash from '../images/trash.svg'
+import { url } from '../url'
 
 class Polls extends React.Component {
     constructor() {
@@ -20,7 +21,7 @@ class Polls extends React.Component {
     }
 
     fetchPollList() {
-        fetch('http://127.0.0.1:8000/api/poll-list/')
+        fetch(url + '/api/poll-list/')
             .then(response => response.json())
             .then(data =>
                 this.setState({ pollList: data }))
@@ -38,7 +39,7 @@ class Polls extends React.Component {
         } else {
             poll["option2votes"].push(userId)
         }
-        fetch(`http://127.0.0.1:8000/api/update/${poll["id"]}/`, {
+        fetch(url + `/api/update/${poll["id"]}/`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(poll)
@@ -63,7 +64,7 @@ class Polls extends React.Component {
 
     createPoll(e) {
         e.preventDefault()
-        fetch('http://127.0.0.1:8000/api/create-poll/', {
+        fetch(url + '/api/create-poll/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -86,7 +87,7 @@ class Polls extends React.Component {
         e.preventDefault()
         const index = ReactDOM.findDOMNode(e.target).parentNode.getAttribute("id")
         let poll = this.state.pollList[index]
-        fetch(`http://127.0.0.1:8000/api/delete-poll/${poll["id"]}/`, {
+        fetch(url + `/api/delete-poll/${poll["id"]}/`, {
             method: 'DELETE'
         })
         let polls = [...this.state.pollList]

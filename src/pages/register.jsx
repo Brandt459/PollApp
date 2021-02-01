@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import { Redirect } from 'react-router-dom'
 import jwt_decode from 'jwt-decode'
+import { url } from '../url'
 
 class Register extends React.Component {
     constructor() {
@@ -18,7 +19,7 @@ class Register extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault()
-        fetch('http://127.0.0.1:8000/api/users/', {
+        fetch(url + '/api/users/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -31,7 +32,7 @@ class Register extends React.Component {
                 if (data.token) {
                     localStorage.setItem('token', data.token)
                     localStorage.setItem('user', jwt_decode(data.token)["username"])
-                    fetch('http://127.0.0.1:8000/api/user_id/', {
+                    fetch(url + '/api/user_id/', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ "username": localStorage.getItem('user') })

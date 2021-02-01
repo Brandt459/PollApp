@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import { Redirect } from 'react-router-dom'
+import { url } from '../url'
 
 class Login extends React.Component {
     constructor() {
@@ -17,7 +18,7 @@ class Login extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault()
-        fetch('http://127.0.0.1:8000/api/token-auth/', {
+        fetch(url + '/api/token-auth/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -31,7 +32,7 @@ class Login extends React.Component {
                     if (data.user.username) {
                         localStorage.setItem('token', data.token)
                         localStorage.setItem('user', data.user.username)
-                        fetch('http://127.0.0.1:8000/api/user_id/', {
+                        fetch(url + '/api/user_id/', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({ "username": localStorage.getItem('user') })
