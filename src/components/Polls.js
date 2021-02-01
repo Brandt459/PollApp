@@ -21,7 +21,7 @@ class Polls extends React.Component {
     }
 
     fetchPollList() {
-        fetch(url + '/api/poll-list/')
+        fetch('/api/poll-list/')
             .then(response => response.json())
             .then(data =>
                 this.setState({ pollList: data }))
