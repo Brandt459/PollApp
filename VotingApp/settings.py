@@ -25,7 +25,7 @@ SECRET_KEY = 'acak1_)tv9)re+*+=ircz7)4jzj%hrgv0+m5$!k30=1ccemp!g'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['pollapp4.herokuapp.com']
+ALLOWED_HOSTS = ['pollapp4.herokuapp.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'frontend',
     'api.apps.ApiConfig',
     'rest_framework',
     'rest_framework.authtoken',
@@ -62,7 +61,7 @@ ROOT_URLCONF = 'VotingApp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'frontend/build')],
+        'DIRS': [os.path.join(BASE_DIR, 'build')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -139,7 +138,7 @@ CORS_ORIGIN_WHITELIST = [
 ]
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'frontend/build/static')
+    os.path.join(BASE_DIR, 'build/static')
 ]
 
 REST_FRAMEWORK = {
