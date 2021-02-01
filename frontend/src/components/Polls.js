@@ -49,7 +49,6 @@ class Polls extends React.Component {
                 polls[index] = data
                 this.setState({
                     pollList: polls,
-                    formError: false,
                 })
             })
     }
@@ -64,30 +63,22 @@ class Polls extends React.Component {
 
     createPoll(e) {
         e.preventDefault()
-        const title = e.target.querySelector("#form-title").value
-        const option1 = e.target.querySelector("#form-option1").value
-        const option2 = e.target.querySelector("#form-option2").value
-        this.setState({ formError: false })
-        if (title && option1 && option2) {
-            fetch('http://127.0.0.1:8000/api/create-poll/', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    "title": title,
-                    "option1": option1,
-                    "option2": option2,
-                    "owner": localStorage.getItem('user')
+        fetch('http://127.0.0.1:8000/api/create-poll/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                "title": e.target.querySelector("#form-title").value,
+                "option1": e.target.querySelector("#form-option1").value,
+                "option2": e.target.querySelector("#form-option2").value,
+                "owner": localStorage.getItem('user')
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+                this.setState({
+                    pollList: [...this.state.pollList, data]
                 })
             })
-                .then(response => response.json())
-                .then(data => {
-                    this.setState({
-                        pollList: [...this.state.pollList, data]
-                    })
-                })
-        } else {
-            this.setState({ formError: true })
-        }
         e.target.reset()
     }
 
@@ -111,27 +102,15 @@ class Polls extends React.Component {
             return (
                 <div>
                     {localStorage.getItem('token') ?
-                        this.state.formError ?
-                            <div className="poll-create">
-                                <h1 className="form-error">Invalid form, please fill all fields</h1>
-                                <h1>Create a poll: </h1>
-                                <form onSubmit={this.createPoll} id="poll-form">
-                                    <input style={{ flex: 3 }} type="text" id="form-title" placeholder="Title" />
-                                    <input style={{ flex: 3 }} type="text" id="form-option1" placeholder="Option 1" />
-                                    <input style={{ flex: 3 }} type="text" id="form-option2" placeholder="Option 2" />
-                                    <input style={{ flex: 1 }} type="submit" id="form-submit" placeholder="Submit" />
-                                </form>
-                            </div>
-                            :
-                            <div className="poll-create">
-                                <h1>Create a poll: </h1>
-                                <form onSubmit={this.createPoll} id="poll-form">
-                                    <input style={{ flex: 3 }} type="text" id="form-title" placeholder="Title" />
-                                    <input style={{ flex: 3 }} type="text" id="form-option1" placeholder="Option 1" />
-                                    <input style={{ flex: 3 }} type="text" id="form-option2" placeholder="Option 2" />
-                                    <input style={{ flex: 1 }} type="submit" id="form-submit" placeholder="Submit" />
-                                </form>
-                            </div>
+                        <div className="poll-create">
+                            <h1>Create a poll: </h1>
+                            <form onSubmit={this.createPoll} id="poll-form">
+                                <input style={{ flex: 3 }} type="text" id="form-title" required placeholder="Title" />
+                                <input style={{ flex: 3 }} type="text" id="form-option1" required placeholder="Option 1" />
+                                <input style={{ flex: 3 }} type="text" id="form-option2" required placeholder="Option 2" />
+                                <input style={{ flex: 1 }} type="submit" id="form-submit" placeholder="Submit" />
+                            </form>
+                        </div>
                         :
                         <div className="login-statement">
                             <h1>Log in to vote and create polls</h1>
