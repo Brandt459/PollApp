@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.190abdc6.chunk.css",
-    "main.js": "/static/js/main.2e4fc266.chunk.js",
-    "main.js.map": "/static/js/main.2e4fc266.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.c60b7f5c.js",
-    "runtime-main.js.map": "/static/js/runtime-main.c60b7f5c.js.map",
-    "static/js/2.7c63d29d.chunk.js": "/static/js/2.7c63d29d.chunk.js",
-    "static/js/2.7c63d29d.chunk.js.map": "/static/js/2.7c63d29d.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/main.190abdc6.chunk.css.map": "/static/css/main.190abdc6.chunk.css.map",
-    "static/js/2.7c63d29d.chunk.js.LICENSE.txt": "/static/js/2.7c63d29d.chunk.js.LICENSE.txt",
-    "static/media/trash.f1497a79.svg": "/static/media/trash.f1497a79.svg"
+    "main.css": "/PollApp/static/css/main.190abdc6.chunk.css",
+    "main.js": "/PollApp/static/js/main.451d9545.chunk.js",
+    "main.js.map": "/PollApp/static/js/main.451d9545.chunk.js.map",
+    "runtime-main.js": "/PollApp/static/js/runtime-main.6eaaee21.js",
+    "runtime-main.js.map": "/PollApp/static/js/runtime-main.6eaaee21.js.map",
+    "static/js/2.7c63d29d.chunk.js": "/PollApp/static/js/2.7c63d29d.chunk.js",
+    "static/js/2.7c63d29d.chunk.js.map": "/PollApp/static/js/2.7c63d29d.chunk.js.map",
+    "index.html": "/PollApp/index.html",
+    "static/css/main.190abdc6.chunk.css.map": "/PollApp/static/css/main.190abdc6.chunk.css.map",
+    "static/js/2.7c63d29d.chunk.js.LICENSE.txt": "/PollApp/static/js/2.7c63d29d.chunk.js.LICENSE.txt",
+    "static/media/trash.f1497a79.svg": "/PollApp/static/media/trash.f1497a79.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.c60b7f5c.js",
+    "static/js/runtime-main.6eaaee21.js",
     "static/js/2.7c63d29d.chunk.js",
     "static/css/main.190abdc6.chunk.css",
-    "static/js/main.2e4fc266.chunk.js"
+    "static/js/main.451d9545.chunk.js"
   ]
 }
