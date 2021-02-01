@@ -82,11 +82,14 @@ WSGI_APPLICATION = 'VotingApp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd4ln6qo8vc6sgc',
+        'HOST': 'ec2-3-210-255-177.compute-1.amazonaws.com',
+        'PORT': 5432,
+        'USER': 'zhawtqbmuaucin',
+        'PASSWORD': 'b6b92abfe185b7b55725e68b4d88344eaa349e6083aa21b42987e532cf4de5b7',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -125,6 +128,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:8000",
