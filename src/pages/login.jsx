@@ -65,7 +65,7 @@ class Login extends React.Component {
                     <div className="register-container">
                         <h1>LOG IN</h1>
                         {this.state.error &&
-                            <h2 className="register-error">Username already exists!</h2>
+                            <h2 className="register-error">Invalid credentials!</h2>
                         }
                         <div className="form-container">
                             <form onSubmit={this.handleSubmit} className="register-form">
