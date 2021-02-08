@@ -25,6 +25,7 @@ class Navbar extends React.Component {
             loggedIn: false,
             username: null,
         })
+        window.location.reload(false)
     }
 
     render() {
