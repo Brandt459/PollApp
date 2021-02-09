@@ -126,6 +126,10 @@ body {
   background: turquoise;
 }
 
+.load-polls:hover {
+  cursor: pointer;
+}
+
 .arrow-down {
   border: solid black;
   border-width: 0 3px 3px 0;
