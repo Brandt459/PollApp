@@ -6,9 +6,13 @@ class Polls extends React.Component {
     constructor() {
         super()
         this.state = {
-            pollList: null,
+            pollList: [],
+            data: [],
+            resultsStartIndex: 0,
+            resultsEndIndex: 3,
+            resultsPerRender: 3
         }
-        this.fetchPollList = this.fetchPollList.bind(this)
+        this.loadPolls = this.loadPolls.bind(this)
         this.updatePoll = this.updatePoll.bind(this)
         this.pollVote = this.pollVote.bind(this)
         this.createPoll = this.createPoll.bind(this)
@@ -16,14 +20,20 @@ class Polls extends React.Component {
     }
 
     componentDidMount() {
-        this.fetchPollList()
-    }
-
-    fetchPollList() {
         fetch('/api/poll-list/')
             .then(response => response.json())
-            .then(data =>
-                this.setState({ pollList: data }))
+            .then(data => {
+                this.loadPolls(data)
+                this.setState({ data: data })
+            })
+    }
+
+    loadPolls(data) {
+        this.setState((prevState) => ({
+            pollList: prevState.pollList.concat(data.slice(prevState.resultsStartIndex, prevState.resultsEndIndex)),
+            resultsStartIndex: prevState.resultsStartIndex + prevState.resultsPerRender,
+            resultsEndIndex: prevState.resultsEndIndex + prevState.resultsPerRender
+        }))
     }
 
     updatePoll(e) {
@@ -98,6 +108,7 @@ class Polls extends React.Component {
 
     render() {
         const pollList = this.state.pollList
+        const data = this.state.data
         try {
             return (
                 <div>
@@ -142,6 +153,9 @@ class Polls extends React.Component {
                                 </div>
                             )
                         })}
+                        {!(pollList.length === data.length) &&
+                            <button className="load-polls" onClick={() => this.loadPolls(data)}><i class="arrow-down" /></button>
+                        }
                     </div>
                 </div >
             )
