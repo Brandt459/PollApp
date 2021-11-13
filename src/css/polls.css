@@ -1,13 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   margin: 0;
-  background: url('../images/neutral.jpg')
+  background: url("../images/neutral.jpg");
 }
 
 .login-statement {
@@ -35,7 +37,7 @@ body {
 .poll-button {
   width: 50%;
   padding: 1em 0;
-  background:#d0efff;
+  background: #d0efff;
   font-size: 16px;
   border-radius: 10px;
 }
@@ -136,6 +138,10 @@ body {
   display: inline-block;
   padding: 3px;
   transform: rotate(45deg);
+}
+
+.poll-submit:hover {
+  cursor: pointer;
 }
 
 @media only screen and (min-width: 901px) {

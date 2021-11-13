@@ -85,13 +85,17 @@ class Polls extends React.Component {
         })
             .then(response => response.json())
             .then(data => {
-                this.setState({
-                    pollList: [...this.state.pollList, data]
+                this.setState(prevstate => {
+                    return {
+                        pollList: [...prevstate.pollList, data],
+                        data: [...prevstate.data, data]
+                    }
                 })
             })
         e.target.reset()
     }
 
+    
     deletePoll(e) {
         e.preventDefault()
         const index = ReactDOM.findDOMNode(e.target).parentNode.getAttribute("id")
@@ -100,15 +104,18 @@ class Polls extends React.Component {
             method: 'DELETE'
         })
         let polls = [...this.state.pollList]
+        let data = polls
         polls.splice(index, 1)
         this.setState({
-            pollList: polls
+            pollList: polls,
+            data: data
         })
     }
-
+    
     render() {
         const pollList = this.state.pollList
         const data = this.state.data
+        console.log(pollList, data)
         try {
             return (
                 <div>
@@ -119,7 +126,7 @@ class Polls extends React.Component {
                                 <input style={{ flex: 3 }} type="text" id="form-title" required placeholder="Title" />
                                 <input style={{ flex: 3 }} type="text" id="form-option1" required placeholder="Option 1" />
                                 <input style={{ flex: 3 }} type="text" id="form-option2" required placeholder="Option 2" />
-                                <input style={{ flex: 1 }} type="submit" id="form-submit" placeholder="Submit" />
+                                <input style={{ flex: 1 }} type="submit" id="form-submit" className="poll-submit" placeholder="Submit" />
                             </form>
                         </div>
                         :
